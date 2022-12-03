@@ -3,6 +3,7 @@ package br.udesc.desbravador.fragment;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import br.udesc.desbravador.R;
 
@@ -27,9 +29,10 @@ import br.udesc.desbravador.R;
  */
 public class Fragment_Qrcode extends Fragment {
 
-
+    public static final String EXTRA_INFO = "default";
     ImageView imvVerQrCode;
     ImageButton btnAcionarLeitorQrCode;
+    private static final int Image_Capture_Code = 1;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -66,10 +69,11 @@ public class Fragment_Qrcode extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
+        /*if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        }*/
+
 
     }
 
@@ -77,23 +81,34 @@ public class Fragment_Qrcode extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment__qrcode, container, false);
+        //return inflater.inflate(R.layout.fragment__qrcode, container, false);
+        View view = inflater.inflate(R.layout.fragment__qrcode, container, false);
+        btnAcionarLeitorQrCode = (ImageButton) view.findViewById(R.id.btnAcionarLeitorQrCode);
+        imvVerQrCode = (ImageView) view.findViewById(R.id.imvVerQrCode);
+        btnAcionarLeitorQrCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cInt = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(cInt,Image_Capture_Code);
+            }
+        });
 
+        return view;
 
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        /*iniciarComponentes(view);
-        //if(ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+       /* iniciarComponentes(view);
+        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 0);
         }
 
-        //imvVerQrCode = (ImageView) findViewById(R.id.imvVerQrCode);
-        //findViewById(R.id.btnAcionarLeitorQrCode).setOnClickListener(new View.OnClickListener()){
+        imvVerQrCode = (ImageView) findViewById(R.id.imvVerQrCode);
+        findViewById(R.id.btnAcionarLeitorQrCode).setOnClickListener(new View.OnClickListener()){
 
-        }
+        }*/
     }
 
     private void iniciarComponentes(View view){
@@ -102,7 +117,18 @@ public class Fragment_Qrcode extends Fragment {
 
     public void tirarFoto(){
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent, 1);*/
+        startActivityForResult(intent, 1);
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == Image_Capture_Code) {
+            if (resultCode == 1) {
+                Bitmap bp = (Bitmap) data.getExtras().get("data");
+                imvVerQrCode.setImageBitmap(bp);
+            } else if (resultCode != 1) {
+                Toast.makeText(getActivity(), "Cancelled", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
 }

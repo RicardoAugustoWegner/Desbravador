@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,6 +36,7 @@
                     android:id="@+id/imgRecyclePontoTurstico"
                     android:layout_width="72dp"
                     android:layout_height="72dp"
+                    android:contentDescription="@string/local"
                     android:scaleType="centerCrop"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -82,12 +84,12 @@
                 android:checked="false"
                 android:contentDescription="@string/curitr"
                 android:paddingHorizontal="4dp"
-                android:theme="@style/cor_check_box_verde"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:id="@+id/divisao"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="?actionBarDivider"

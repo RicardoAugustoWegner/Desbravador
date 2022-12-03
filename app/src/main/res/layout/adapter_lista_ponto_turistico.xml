@@ -29,6 +29,7 @@
                 android:id="@+id/imgRecyclePontoTurstico"
                 android:layout_width="72dp"
                 android:layout_height="72dp"
+                android:contentDescription="local"
                 android:scaleType="centerCrop"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -82,7 +83,6 @@
             android:layout_height="20dp"
             android:layout_marginStart="10dp"
             android:button="@drawable/check_box_estrela"
-            android:theme="@style/cor_check_box_verde"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/cboxDuasEstrela"
             app:layout_constraintTop_toBottomOf="@+id/txtNomeLocal"
@@ -131,7 +131,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="?actionBarDivider"
+            android:background="@color/cor_text_medalha_bronze"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:layout_editor_absoluteX="10dp"></ImageView>
 

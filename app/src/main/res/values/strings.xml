@@ -38,4 +38,12 @@
     <string name="telefones_uteis">Telefones Úteis</string>
     <string name="title_activity_maps">MapsActivity</string>
 
+    <string name="facebook">Facebook</string>
+    <string name="instagram">Instagram</string>
+    <string name="title_activity_teste_maps">TesteMaps</string>
+    <string name="local">Local</string>
+    <string name="telefoneteste">(47) 3352-8330</string>
+    <string name="pesquisar">Pesquisar</string>
+    <string name="clique">Clique</string>
+
 </resources>

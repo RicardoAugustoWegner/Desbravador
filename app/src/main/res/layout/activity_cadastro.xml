@@ -11,21 +11,6 @@
     android:paddingVertical="20dp">
 
 
-    <Button
-        android:id="@+id/btnConfirmarCadastro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/gradiente_verde"
-        android:onClick="abrirToast"
-        android:text="@string/confirmar"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtConfirmeSenhaCadastro"
-        tools:ignore="TextContrastCheck" />
-
     <ImageView
         android:id="@+id/imgLogo"
         android:layout_width="150dp"
@@ -68,6 +53,7 @@
         android:accessibilityHeading="false"
         android:background="@drawable/botao_borda_verde_radius"
         android:hint="@string/nome"
+        android:minHeight="48dp"
         android:paddingVertical="12dp"
         android:textAlignment="viewStart"
         android:textColor="@color/cor_text_verde_escuro"
@@ -86,6 +72,7 @@
         android:layout_marginBottom="12dp"
         android:background="@drawable/botao_borda_verde_radius"
         android:hint="@string/email"
+        android:minHeight="48dp"
         android:paddingVertical="12dp"
         android:textColor="@color/cor_text_verde_escuro"
         android:textColorHint="@color/teal_200"
@@ -103,6 +90,7 @@
         android:layout_marginBottom="12dp"
         android:background="@drawable/botao_borda_verde_radius"
         android:hint="@string/email_confimar"
+        android:minHeight="48dp"
         android:paddingVertical="12dp"
         android:textColor="@color/cor_text_verde_escuro"
         android:textColorHint="@color/teal_200"
@@ -121,6 +109,7 @@
         android:background="@drawable/botao_borda_verde_radius"
         android:hint="@string/senha"
         android:inputType="textPassword"
+        android:minHeight="48dp"
         android:paddingVertical="12dp"
         android:textColor="@color/cor_text_verde_escuro"
         android:textColorHint="@color/teal_200"
@@ -139,6 +128,7 @@
         android:background="@drawable/botao_borda_verde_radius"
         android:hint="@string/senha_confirmar"
         android:inputType="textPassword"
+        android:minHeight="48dp"
         android:paddingVertical="12dp"
         android:textColor="@color/cor_text_verde_escuro"
         android:textColorHint="@color/teal_200"
@@ -146,5 +136,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtSenhaCadastro" />
+
+    <Button
+        android:id="@+id/btnConfirmarCadastro"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/gradiente_verde"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:onClick="abrirToast"
+        android:text="@string/confirmar"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtConfirmeSenhaCadastro"
+        tools:ignore="TextContrastCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

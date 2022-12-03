@@ -1,24 +1,29 @@
 package br.udesc.desbravador.activity;
 
 import android.os.Bundle;
-import android.widget.Adapter;
-import android.widget.ImageButton;
-import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import br.udesc.desbravador.R;
-import br.udesc.desbravador.adapter.PontosListAdapter;
-import br.udesc.desbravador.adapter.PontosTuristicosAdapter;
+import br.udesc.desbravador.databinding.ActivityMapsBinding;
 import br.udesc.desbravador.model.PontoTuristico;
 
-public class PontosTuristicosAcitivity extends AppCompatActivity {
+public class PontosTuristicosAcitivity extends AppCompatActivity implements OnMapReadyCallback {
 
+    private GoogleMap mMap;
+    private ActivityMapsBinding binding;
     //private RecyclerView recyclerView;
     private ArrayList<PontoTuristico> pontosTuristicos;
 
@@ -26,6 +31,16 @@ public class PontosTuristicosAcitivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pontos_turistico);
+
+        binding = ActivityMapsBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map_tela_frag);
+        mapFragment.getMapAsync(this);
+
+        //MapFragment mapFragment = supportFragmentManager.findFragmnetById(R.id.map_tela_frag) as SupportMapFragment;
         //ListView listView = (ListView) findViewById(R.id.);
         /*recyclerView = findViewById(R.id.recyclePontosTuristicos);
 
@@ -51,6 +66,19 @@ public class PontosTuristicosAcitivity extends AppCompatActivity {
         listView.setAdapter(new PontosListAdapter(this, pontosTuristicos));*/
 
     }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+        // Add a marker in Sydney and move the camera
+        LatLng sydney = new LatLng(-34, 151);
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+    }
+
+
+
 }
 
 

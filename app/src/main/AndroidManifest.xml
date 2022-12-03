@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="br.udesc.desbravador">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,16 +16,37 @@
         android:theme="@style/Theme.Desbravador"
         tools:targetApi="31">
 
-    <activity
-        android:name=".MainActivity"
-        android:exported="true"
-        android:label="@string/app_name"
-        android:theme="@style/Theme.Desbravador.NoActionBar">
+        <!--
+             TODO: Before you run your application, you need a Google Maps API key.
+
+             To get one, follow the directions here:
+
+                https://developers.google.com/maps/documentation/android-sdk/get-api-key
+
+             Once you have your API key (it starts with "AIza"), define a new property in your
+             project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
+             "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDSPve6MBdAfuFPJ-EK3zawBygJsYGPKuw" />
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Desbravador.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-    </activity>
+        </activity>
+
+        <activity android:name=".activity.PontosTuristicosAcitivity"/>
+        <activity android:name=".activity.CadastroActivity"/>
+        <activity android:name=".activity.QrCodeActivity"/>
+
     </application>
+
 </manifest>

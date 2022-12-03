@@ -42,7 +42,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txt_email_login"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/botao_borda_verde_radius"
                 android:hint="@string/email"
@@ -65,7 +65,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txt_senha_login"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_marginVertical="20dp"
                 android:background="@drawable/botao_borda_verde_radius"
                 android:hint="@string/senha"
@@ -78,8 +78,8 @@
 
         <Button
             android:id="@+id/btn_entrar_login"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_width="100dp"
+            android:layout_height="48dp"
             android:layout_marginHorizontal="50dp"
             android:background="@drawable/gradiente_verde"
             android:text="@string/entrar"
@@ -89,8 +89,8 @@
 
         <Button
             android:id="@+id/btn_criar_conta"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_width="150dp"
+            android:layout_height="48dp"
             android:background="@drawable/gradiente_verde"
             android:onClick="abrirCadastro"
             android:text="@string/criar_conta"

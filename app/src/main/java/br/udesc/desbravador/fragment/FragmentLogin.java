@@ -15,6 +15,7 @@ import android.widget.Button;
 import br.udesc.desbravador.MainActivity;
 import br.udesc.desbravador.R;
 import br.udesc.desbravador.activity.CadastroActivity;
+import br.udesc.desbravador.activity.PontosTuristicosAcitivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,8 +24,8 @@ import br.udesc.desbravador.activity.CadastroActivity;
  */
 public class FragmentLogin extends Fragment {
 
-
     Button btnCriarConta;
+    Button btn_entrar_login;
     View view;
 
 
@@ -65,10 +66,6 @@ public class FragmentLogin extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-
-
-
-
         }
     }
 
@@ -95,7 +92,7 @@ public class FragmentLogin extends Fragment {
                 startActivity(new Intent(getActivity(), CadastroActivity.class)));
 
         view.findViewById(R.id.btn_entrar_login).setOnClickListener(v ->
-                startActivity(new Intent(getActivity(), MainActivity.class)));
+                startActivity(new Intent(getActivity(), PontosTuristicosAcitivity.class)));
     }
 
 

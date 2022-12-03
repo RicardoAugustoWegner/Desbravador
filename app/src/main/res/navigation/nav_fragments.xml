@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_fragments"
+    app:startDestination="@id/tela_inicial_menu">
+
+    <fragment
+        android:id="@+id/tela_inicial_menu"
+        android:name="br.udesc.desbravador.fragment.Fragment_Home"
+        android:label="fragment__home"
+        tools:layout="@layout/fragment__home" />
+    <fragment
+        android:id="@+id/curtidas_menus"
+        android:name="br.udesc.desbravador.fragment.Fragment_Curtidas"
+        android:label="fragment__curtidas"
+        tools:layout="@layout/fragment__curtidas" />
+    <fragment
+        android:id="@+id/qrcode_menu"
+        android:name="br.udesc.desbravador.fragment.Fragment_Qrcode"
+        android:label="fragment__qrcode"
+        tools:layout="@layout/fragment__qrcode" />
+    <fragment
+        android:id="@+id/telfones_uteis_menu"
+        android:name="br.udesc.desbravador.fragment.Fragment_Telefones"
+        android:label="fragment__telefones"
+        tools:layout="@layout/fragment__telefones" />
+    <fragment
+        android:id="@+id/login_menu"
+        android:name="br.udesc.desbravador.fragment.FragmentLogin"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+</navigation>

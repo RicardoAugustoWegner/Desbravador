@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:paddingHorizontal="20dp"
+    android:paddingVertical="20dp">
+
+
+    <Button
+        android:id="@+id/btnConfirmarCadastro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/gradiente_verde"
+        android:onClick="abrirToast"
+        android:text="@string/confirmar"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtConfirmeSenhaCadastro"
+        tools:ignore="TextContrastCheck" />
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintBottom_toTopOf="@+id/txtCadastreSe"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:srcCompat="@drawable/logo"
+        tools:ignore="ImageContrastCheck" />
+
+    <TextView
+        android:id="@+id/txtCadastreSe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="@string/cadastre_se"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+
+
+        android:textColor="@color/cor_text_verde_escuro"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/txtNomeCadastro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgLogo" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/txtNomeCadastro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="12dp"
+        android:accessibilityHeading="false"
+        android:background="@drawable/botao_borda_verde_radius"
+        android:hint="@string/nome"
+        android:paddingVertical="12dp"
+        android:textAlignment="viewStart"
+        android:textColor="@color/cor_text_verde_escuro"
+        android:textColorHint="@color/teal_200"
+        app:layout_constraintBottom_toTopOf="@+id/txtEmailCadastro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCadastreSe" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/txtEmailCadastro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/botao_borda_verde_radius"
+        android:hint="@string/email"
+        android:paddingVertical="12dp"
+        android:textColor="@color/cor_text_verde_escuro"
+        android:textColorHint="@color/teal_200"
+        app:layout_constraintBottom_toTopOf="@+id/txtConfirmeEmailCadastro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNomeCadastro" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/txtConfirmeEmailCadastro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/botao_borda_verde_radius"
+        android:hint="@string/email_confimar"
+        android:paddingVertical="12dp"
+        android:textColor="@color/cor_text_verde_escuro"
+        android:textColorHint="@color/teal_200"
+        app:layout_constraintBottom_toTopOf="@+id/txtSenhaCadastro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtEmailCadastro" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/txtSenhaCadastro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/botao_borda_verde_radius"
+        android:hint="@string/senha"
+        android:inputType="textPassword"
+        android:paddingVertical="12dp"
+        android:textColor="@color/cor_text_verde_escuro"
+        android:textColorHint="@color/teal_200"
+        app:layout_constraintBottom_toTopOf="@+id/txtConfirmeSenhaCadastro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtConfirmeEmailCadastro" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/txtConfirmeSenhaCadastro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/botao_borda_verde_radius"
+        android:hint="@string/senha_confirmar"
+        android:inputType="textPassword"
+        android:paddingVertical="12dp"
+        android:textColor="@color/cor_text_verde_escuro"
+        android:textColorHint="@color/teal_200"
+        app:layout_constraintBottom_toTopOf="@+id/btnConfirmarCadastro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtSenhaCadastro" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

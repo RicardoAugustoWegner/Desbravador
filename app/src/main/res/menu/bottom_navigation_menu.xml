@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/tela_inicial_menu"
+        android:icon="@drawable/ic_home"
+        android:title="@string/inicio"/>
+    <item
+        android:id="@+id/curtidas_menus"
+        android:icon="@drawable/ic_coracao_menu"
+        android:title="@string/curtidas"/>
+    <item
+        android:id="@+id/qrcode_menu"
+        android:icon="@drawable/ic_qrcode"
+        android:title="@string/qrcode"/>
+    <item
+        android:id="@+id/telfones_uteis_menu"
+        android:icon="@drawable/ic_telefone"
+        android:title="@string/telefones"/>
+    <item
+        android:id="@+id/login_menu"
+        android:icon="@drawable/ic_medalha"
+        android:title="@string/login"/>
+</menu>

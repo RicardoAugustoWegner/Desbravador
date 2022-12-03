@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#023D21</color>
+    <color name="purple_500">#023D21</color>
+    <color name="purple_700">#023D21</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="cor_text_verde_escuro">#023D21</color>
+    <color name="cor_text_medalha_dourada">#FFDF00</color>
+    <color name="cor_text_medalha_prateada">#123454</color>
+    <color name="cor_text_medalha_bronze">#128888</color>
+    <color name="cot_texte_verde_claro">#3EBD80</color>
+
+</resources>

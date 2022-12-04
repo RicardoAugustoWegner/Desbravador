@@ -1,6 +1,10 @@
 package br.udesc.desbravador.fragment;
 
+import static android.app.Activity.RESULT_CANCELED;
+import static android.app.Activity.RESULT_OK;
+
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -9,6 +13,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -16,11 +21,14 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import br.udesc.desbravador.R;
+import br.udesc.desbravador.activity.CadastroActivity;
+import br.udesc.desbravador.activity.PontosTuristicosAcitivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,10 +37,9 @@ import br.udesc.desbravador.R;
  */
 public class Fragment_Qrcode extends Fragment {
 
-    public static final String EXTRA_INFO = "default";
+    ImageButton botaoQrCode;
     ImageView imvVerQrCode;
-    ImageButton btnAcionarLeitorQrCode;
-    private static final int Image_Capture_Code = 1;
+    private final static int selecao_camera = 1;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -69,66 +76,91 @@ public class Fragment_Qrcode extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        /*if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }*/
+        View v = new View();
+        v.onCreateView();
 
+
+        /*if(ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA},0);
+        } */
+
+        /*if (ActivityCompat.checkSelfPermission(this,Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermission(this, new String[]{Manifest.permission.CAMERA}, 0);
+        }
+
+        imvVerQrCode = (ImageView) findViewById(R.id.imageView);
+        findViewById(R.id.btnAcionarLeitorQrCode).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void OnClick(View v) {
+                tirarFoto();
+            }
+        });*/
 
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        View v = inflater.inflate(R.layout.fragment__qrcode, container, false);
+
+        //*btnQrCode = v.findViewById(R.id.btnAcionarLeitorQrCode);
+
+        /*botaoQrCode = (ImageButton) v.findViewById(R.id.btnAcionarLeitorQrCode);
+        botaoQrCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent, 1);
+            }
+        });*/
+        return v;
+    }
+
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment__qrcode, container, false);
-        View view = inflater.inflate(R.layout.fragment__qrcode, container, false);
-        btnAcionarLeitorQrCode = (ImageButton) view.findViewById(R.id.btnAcionarLeitorQrCode);
-        imvVerQrCode = (ImageView) view.findViewById(R.id.imvVerQrCode);
-        btnAcionarLeitorQrCode.setOnClickListener(new View.OnClickListener() {
+
+
+        /*acionarLeior =(ImageButton)view.findViewById(R.id.btnAcionarLeitorQrCode);
+        verFoto = (ImageView)view.findViewById(R.id.imvVerQrCode);
+        acionarLeior.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent cInt = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(cInt,Image_Capture_Code);
             }
-        });
+        });*/
 
-        return view;
-
-    }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-       /* iniciarComponentes(view);
-        if(ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 0);
-        }
 
-        imvVerQrCode = (ImageView) findViewById(R.id.imvVerQrCode);
-        findViewById(R.id.btnAcionarLeitorQrCode).setOnClickListener(new View.OnClickListener()){
+        botaoQrCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent, selecao_camera);
+            }
+        });
 
-        }*/
     }
 
-    private void iniciarComponentes(View view){
-        btnAcionarLeitorQrCode = view.findViewById(R.id.btnAcionarLeitorQrCode);
-    }
-
-    public void tirarFoto(){
+    /*public void tirarFoto(){
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(intent, 1);
-    }
+    }*/
 
-    @Override
+
+
+    /*@Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == Image_Capture_Code) {
-            if (resultCode == 1) {
-                Bitmap bp = (Bitmap) data.getExtras().get("data");
-                imvVerQrCode.setImageBitmap(bp);
-            } else if (resultCode != 1) {
-                Toast.makeText(getActivity(), "Cancelled", Toast.LENGTH_LONG).show();
-            }
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == getActivity().RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap image = (Bitmap) extras.get("data");
+            imvVerQrCode.setImageBitmap(image);
         }
-    }
+
+    }*/
 }

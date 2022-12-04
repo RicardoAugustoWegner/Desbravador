@@ -1,6 +1,12 @@
 package br.udesc.desbravador.model;
 
+import android.database.Cursor;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
+
+import br.udesc.desbravador.model_DAO.BancoDesbravadoresHelpers;
 
 public class PontoTuristico {
 
@@ -117,4 +123,30 @@ public class PontoTuristico {
     public void setInstagram(String instagram) {
         this.instagram = instagram;
     }
+
+    public List<PontoTuristico> getPontosTuristicosList(){
+
+        List<PontoTuristico> pontosTuristicosList = new ArrayList<>();
+
+        String sql = "SELECT * FROM" + BancoDesbravadoresHelpers.TB_PONTO_TURISTICO + ";";
+        Cursor c = read.rawQuery(sql, null);
+
+        while (c.moveToNext()){
+            int id = c.getInt(c.getColumnIndex(id));
+            String nome = c.getString(c.getColumnIndex(nome));
+            String descricao = c.getString(c.getColumnIndex(descricao));
+
+            PontoTuristico pontoTuristico = new PontoTuristico();
+            pontoTuristico.setId(id);
+            pontoTuristico.setNome(nome);
+            pontoTuristico.setDescricao(descricao);
+
+            pontoTuristico.add(pontoTuristico);
+
+        }
+
+        return pontosTuristicosList;
+    }
+
+
 }

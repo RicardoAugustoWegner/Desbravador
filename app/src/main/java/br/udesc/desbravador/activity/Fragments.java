@@ -32,6 +32,7 @@ public class Fragments extends AppCompatActivity {
         binding = ActivityFragmentsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         iniciarNavegacao();
+
     }
 
     private void iniciarNavegacao(){
@@ -48,5 +49,13 @@ public class Fragments extends AppCompatActivity {
    // ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
     //        android.R.layout.simple_list_item_1, LOCAIS);
     //texto.set;
+
+    private void configuracaoButton(View view){
+        view.findViewById(R.id.btn_criar_conta).setOnClickListener(v ->
+                startActivity(new Intent(this, CadastroActivity.class)));
+
+        view.findViewById(R.id.btn_entrar_login).setOnClickListener(v ->
+                startActivity(new Intent(getActivity(), PontosTuristicosAcitivity.class)));
+    }
 
 }

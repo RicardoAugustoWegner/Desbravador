@@ -76,7 +76,7 @@ public class FragmentLogin extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_login, container, false);
 
-        configuracaoButton(view);
+            configuracaoButton(view);
 
         return view;
     }

@@ -15,12 +15,15 @@
         android:id="@+id/imgLogo"
         android:layout_width="150dp"
         android:layout_height="150dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="24dp"
         android:contentDescription="@string/app_name"
         app:layout_constraintBottom_toTopOf="@+id/txtCadastreSe"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:layout_constraintVertical_chainStyle="packed"
         app:srcCompat="@drawable/logo"
         tools:ignore="ImageContrastCheck" />
@@ -146,12 +149,26 @@
         android:minWidth="48dp"
         android:minHeight="48dp"
         android:onClick="abrirToast"
+        android:onClic="validarDados"
         android:text="@string/confirmar"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtConfirmeSenhaCadastro"
         tools:ignore="TextContrastCheck" />
+
+    <ProgressBar
+        android:id="@+id/pbCadastro"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="32dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnConfirmarCadastro"
+        android:indeterminateTint="@color/cot_texte_verde_claro"
+        tools:visibility="visible">
+        =
+    </ProgressBar>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

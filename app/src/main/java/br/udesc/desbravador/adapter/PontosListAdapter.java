@@ -37,7 +37,7 @@ public class PontosListAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int i) {
-        return pontosTuristicos.get(i).getId();
+        return pontosTuristicos.get(i).getIdPontoTuristico();
     }
 
     public List<PontoTuristico> getPontosTuristicos() {

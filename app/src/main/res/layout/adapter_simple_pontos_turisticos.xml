@@ -47,7 +47,7 @@
             android:text="TextView"
             android:textColor="@color/cor_text_verde_escuro"
             android:textSize="16sp"
-            app:layout_constraintEnd_toStartOf="@+id/btnCurtirLocal"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/cardView"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -115,23 +115,10 @@
             app:layout_constraintVertical_bias="0.3"
             tools:ignore="TouchTargetSizeCheck" />
 
-        <CheckBox
-            android:id="@+id/btnCurtirLocal"
-            android:layout_width="56dp"
-            android:layout_height="68dp"
-            android:button="@drawable/check_box_curtir"
-            android:checked="false"
-            android:contentDescription="@string/curitr"
-            android:paddingHorizontal="4dp"
-            android:theme="@style/cor_check_box_verde"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/cor_text_medalha_bronze"
+            android:background="#BDBDBD"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:layout_editor_absoluteX="10dp"></ImageView>
 

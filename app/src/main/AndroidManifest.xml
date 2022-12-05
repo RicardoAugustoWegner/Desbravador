@@ -20,8 +20,19 @@
         android:theme="@style/Theme.Desbravador"
         tools:targetApi="31">
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.ReligiosoActivity"/>
+        <activity
+            android:name=".activity.GastronomiaActivity"
             android:exported="false" />
+        <activity
+            android:name=".activity.HoteisActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.HistoriaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.NaturezaActivity"/>
+
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -35,7 +46,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDSPve6MBdAfuFPJ-EK3zawBygJsYGPKuw" />
+            android:value="AIzaSyANc55dQER8hopYQfCNe5FGo9n9P7hcbK8" />
 
         <activity
             android:name=".MainActivity"
@@ -51,6 +62,7 @@
         <activity android:name=".activity.PontosTuristicosAcitivity" />
         <activity android:name=".activity.CadastroActivity" />
         <activity android:name=".activity.QrCodeActivity" />
+        <activity android:name=".activity.LoginActivity" />
     </application>
 
 </manifest>

@@ -12,6 +12,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
+import br.udesc.desbravador.activity.CadastroActivity;
+import br.udesc.desbravador.activity.NaturezaActivity;
 import br.udesc.desbravador.activity.PontosTuristicosAcitivity;
 import br.udesc.desbravador.databinding.ActivityFragmentsBinding;
 
@@ -48,6 +50,17 @@ public class MainActivity extends AppCompatActivity {
     public void listaLocais(View view) {
         Intent listaLocais = new Intent(br.udesc.desbravador.MainActivity.this, PontosTuristicosAcitivity.class);
         startActivity(listaLocais);
+    }
+
+    private void configuracaoButton(View view){
+        view.findViewById(R.id.btn_criar_conta).setOnClickListener(v ->
+                startActivity(new Intent(this, CadastroActivity.class)));
+
+        //view.findViewById(R.id.butNatureza).setOnClickListener(v ->
+         //       startActivity(new Intent(this, NaturezaActivity.class)));
+
+        //view.findViewById(R.id.btn_entrar_login).setOnClickListener(v ->
+        //       startActivity(new Intent(getActivity(), PontosTuristicosAcitivity.class)));
     }
 }
 

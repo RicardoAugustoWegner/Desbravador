@@ -40,7 +40,7 @@
             <ImageButton
                 android:id="@+id/butHoteis"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:background="@color/white"
                 android:scaleType="centerInside"
                 app:layout_constraintBottom_toBottomOf="@+id/btnHistorias"
@@ -48,17 +48,17 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/btnHistorias"
                 app:layout_constraintTop_toTopOf="@+id/btnHistorias"
-                app:srcCompat="@drawable/ic_historia"
+                app:srcCompat="@drawable/hotel78red"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <ImageButton
                 android:id="@+id/butGastronomia"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:background="@color/white"
                 android:scaleType="centerInside"
                 app:layout_constraintBottom_toBottomOf="@+id/butHoteis"
-                app:layout_constraintEnd_toStartOf="@+id/butNatureza"
+                app:layout_constraintEnd_toStartOf="@+id/btn_natureza"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/butHoteis"
                 app:layout_constraintTop_toTopOf="@+id/butHoteis"
@@ -66,7 +66,7 @@
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <ImageButton
-                android:id="@+id/butNatureza"
+                android:id="@+id/btn_natureza"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@color/white"

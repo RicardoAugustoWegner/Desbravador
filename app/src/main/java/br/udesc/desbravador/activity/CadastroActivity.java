@@ -33,7 +33,8 @@ public class CadastroActivity extends AppCompatActivity {
         usuarioDAO = new UsuarioDAO(this);
 
         iniciarComponentes();
-        configuracaoButton();
+        //configuracaoButton();
+        validadaDados();
     }
 
     public void iniciarComponentes(){
@@ -45,11 +46,17 @@ public class CadastroActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.pbCadastro);
     }
 
-    private void configuracaoButton(){
-        findViewById(R.id.btnConfirmarCadastro).setOnClickListener(v -> finish());
-    }
+    /*private void configuracaoButton(){
+        btnConfirmarCadastro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-    private void validadaDados(View view){
+                finish();
+            }
+        });
+    }*/
+
+    private void validadaDados(){
 
         String nome = campoNome.getText().toString();
         String email = campoEmail.getText().toString();
@@ -71,11 +78,13 @@ public class CadastroActivity extends AppCompatActivity {
                             usuario.setSenha(senha);
                             usuarioDAO.cadastrarUsuario(usuario);
 
+                            Toast.makeText(getApplicationContext(), "Cadastrado com Sucesso", Toast.LENGTH_LONG).show();
                             finish();
 
                         } else {
+
+                            Toast.makeText(getApplicationContext(), "Senhas informadas são diferentes", Toast.LENGTH_LONG).show();
                             campoConfirmeSenha.requestFocus();
-                            campoConfirmeSenha.setError("Senhas informadas são diferentes");
                         }
                     } else {
                         campoSenha.requestFocus();
@@ -95,12 +104,6 @@ public class CadastroActivity extends AppCompatActivity {
         }
     }
 
-    private void cadastrarUsuario(Usuario usuario){
-
-    }
-
-
-
     @SuppressLint({"ResourceAsColor", "SetTextI18n"})
     public void abrirToast(View view){
 
@@ -108,7 +111,7 @@ public class CadastroActivity extends AppCompatActivity {
         textView.setBackgroundResource(R.drawable.botao_borda_verde_radius);
         textView.setTextSize(15);
         textView.setTextColor(R.color.cor_text_verde_escuro);
-        textView.setText("Cadastrado com Sucesso!");
+        ;
 
         Toast toast = new Toast(getApplicationContext());
         toast.setDuration(Toast.LENGTH_SHORT);

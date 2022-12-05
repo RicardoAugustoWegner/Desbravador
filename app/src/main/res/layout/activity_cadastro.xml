@@ -149,7 +149,6 @@
         android:minWidth="48dp"
         android:minHeight="48dp"
         android:onClick="abrirToast"
-        android:onClic="validarDados"
         android:text="@string/confirmar"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"

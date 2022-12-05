@@ -2,21 +2,25 @@ package br.udesc.desbravador.model;
 
 public class TipoPontoTuristico {
 
-    private int id;
-    private String TipoPontoTuristico;
+    private int idTipo;
+    private String descriçcao;
 
-    public TipoPontoTuristico(int id, String tipoPontoTuristico) {
-        this.id = id;
-        TipoPontoTuristico = tipoPontoTuristico;
+    public TipoPontoTuristico() {
     }
 
-    public int getId() {
-        return id;
+    public int getIdTipo() {
+        return idTipo;
     }
 
-    public String getTipoPontoTuristico() {
-        return TipoPontoTuristico;
+    public void setIdTipo(int idTipo) {
+        this.idTipo = idTipo;
     }
 
+    public String getDescriçcao() {
+        return descriçcao;
+    }
 
+    public void setDescriçcao(String descriçcao) {
+        this.descriçcao = descriçcao;
+    }
 }

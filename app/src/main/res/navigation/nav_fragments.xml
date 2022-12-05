@@ -9,7 +9,7 @@
         android:id="@+id/tela_inicial_menu"
         android:name="br.udesc.desbravador.fragment.Fragment_Home"
         android:label="fragment__home"
-        tools:layout="@layout/fragment__home" />
+        tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/curtidas_menus"
         android:name="br.udesc.desbravador.fragment.Fragment_Curtidas"

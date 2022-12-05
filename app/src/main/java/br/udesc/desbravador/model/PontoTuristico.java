@@ -1,51 +1,37 @@
 package br.udesc.desbravador.model;
 
-import android.database.Cursor;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-
-import br.udesc.desbravador.model_DAO.BancoDesbravadoresHelpers;
+import android.graphics.drawable.Drawable;
 
 public class PontoTuristico {
 
-    private int id;
+    private int idPontoTuristico;
     private int idTipoPontoTuristico;
-    private String tipo;
     private String nome;
-    private Endereco endereco;
     private String descricao;
-    private boolean curtir;
-    private double estrelas;
-    private Locale localizacao;
+    private String latitude;
+    private String longitude;
+    private String endereco;
+    private String imagemPequena;
+    private String imagemGrande;
+    private int eUtil;
+    private int eCnpj;
+    private String telefone;
+    private String whatsapp;
     private String facebook;
     private String instagram;
-    //private HoraFuncionamento horaFuncionamento;
-    //private double valorEntrada;
+    private String email;
+    private String funcionamento;
 
+    public PontoTuristico() {
 
-    public PontoTuristico(int id, int idTipoPontoTuristico, String tipo, String nome, Endereco endereco, String descricao, boolean curtir, double estrelas, Locale localizacao) {
-        this.id = id;
-        this.idTipoPontoTuristico = idTipoPontoTuristico;
-        this.tipo = tipo;
-        this.nome = nome;
-        this.endereco = endereco;
-        this.descricao = descricao;
-        this.curtir = curtir;
-        this.estrelas = estrelas;
-        this.localizacao = localizacao;
     }
 
-    public PontoTuristico(int id, int idTipoPontoTuristico, String nome,boolean curtir){
-        this.id = id;
-        this.idTipoPontoTuristico = idTipoPontoTuristico;
-        this.nome = nome;
-        this.curtir = curtir;
+    public int getIdPontoTuristico() {
+        return idPontoTuristico;
     }
 
-    public int getId() {
-        return id;
+    public void setIdPontoTuristico(int idPontoTuristico) {
+        this.idPontoTuristico = idPontoTuristico;
     }
 
     public int getIdTipoPontoTuristico() {
@@ -56,75 +42,127 @@ public class PontoTuristico {
         this.idTipoPontoTuristico = idTipoPontoTuristico;
     }
 
-    public String getTipo() {
-        return tipo;
-    }
-
     public String getNome() {
         return nome;
-    }
-
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public Boolean getCurtir() {
-        return curtir;
-    }
-
-    public double getEstrelas() {
-        return estrelas;
-    }
-
-    public Locale getLocalizacao() {
-        return localizacao;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+    public String getDescricao() {
+        return descricao;
     }
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 
-    public void setCurtir(boolean curtir) {
-        this.curtir = curtir;
+    public String getLatitude() {
+        return latitude;
     }
 
-    public void setEstrelas(double estrelas) {
-        this.estrelas = estrelas;
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
     }
 
-    public void setLocalizacao(Locale localizacao) {
-        this.localizacao = localizacao;
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getImagemPequena() {
+        return imagemPequena;
+    }
+
+    public void setImagemPequena(String imagemPequena) {
+        this.imagemPequena = imagemPequena;
+    }
+
+    public String getImagemGrande() {
+        return imagemGrande;
+    }
+
+    public void setImagemGrande(String imagemGrande) {
+        this.imagemGrande = imagemGrande;
+    }
+
+    public int geteUtil() {
+        return eUtil;
+    }
+
+    public void seteUtil(int eUtil) {
+        this.eUtil = eUtil;
+    }
+
+    public int geteCnpj() {
+        return eCnpj;
+    }
+
+    public void seteCnpj(int eCnpj) {
+        this.eCnpj = eCnpj;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getWhatsapp() {
+        return whatsapp;
+    }
+
+    public void setWhatsapp(String whatsapp) {
+        this.whatsapp = whatsapp;
+    }
+
+    public String getFacebook() {
+        return facebook;
     }
 
     public void setFacebook(String facebook) {
         this.facebook = facebook;
     }
 
+    public String getInstagram() {
+        return instagram;
+    }
+
     public void setInstagram(String instagram) {
         this.instagram = instagram;
     }
 
-    public List<PontoTuristico> getPontosTuristicosList(){
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getFuncionamento() {
+        return funcionamento;
+    }
+
+    public void setFuncionamento(String funcionamento) {
+        this.funcionamento = funcionamento;
+    }
+
+    /*public List<PontoTuristico> getPontosTuristicosList(){
 
         List<PontoTuristico> pontosTuristicosList = new ArrayList<>();
 
@@ -146,7 +184,7 @@ public class PontoTuristico {
         }
 
         return pontosTuristicosList;
-    }
+    }*/
 
 
 }

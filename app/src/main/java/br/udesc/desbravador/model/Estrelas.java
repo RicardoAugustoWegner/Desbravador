@@ -5,20 +5,35 @@ import java.util.List;
 
 public class Estrelas {
 
-    private PontoTuristico pontoTuristico;
-    private int estrelas ;
+    private int idUsuario;
+    private int idLocal;
+    private int estrela;
 
-    public Estrelas(PontoTuristico pontoTuristico, int estrelas) {
-        this.pontoTuristico = pontoTuristico;
-        this.estrelas = estrelas;
+    public Estrelas() {
+
     }
 
-    public PontoTuristico getPontoTuristico() {
-        return pontoTuristico;
+    public int getIdUsuario() {
+        return idUsuario;
     }
 
-    public int getEstrelas() {
-        return estrelas;
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
+    public int getIdLocal() {
+        return idLocal;
+    }
+
+    public void setIdLocal(int idLocal) {
+        this.idLocal = idLocal;
+    }
+
+    public int getEstrela() {
+        return estrela;
+    }
+
+    public void setEstrela(int estrela) {
+        this.estrela = estrela;
+    }
 }

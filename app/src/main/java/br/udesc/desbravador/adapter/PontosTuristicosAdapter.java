@@ -1,10 +1,8 @@
 package br.udesc.desbravador.adapter;
 
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -12,47 +10,60 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+
 import br.udesc.desbravador.R;
+import br.udesc.desbravador.activity.NaturezaActivity;
+import br.udesc.desbravador.model.PontoTuristico;
+import br.udesc.desbravador.model_DAO.PontoTuristicoDAO;
 
 public class PontosTuristicosAdapter extends RecyclerView.Adapter<PontosTuristicosAdapter.MyViewHolder> {
+
+    private List<PontoTuristico> pontoTuristicosList;
+
+    public PontosTuristicosAdapter(List<PontoTuristico> pontoTuristicosList, NaturezaActivity naturezaActivity) {
+        this.pontoTuristicosList = pontoTuristicosList;
+    }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemLocal = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_lista_ponto_turistico, parent, false);
-        return new MyViewHolder(itemLocal);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_simple_pontos_turisticos, parent, false);
+        return new MyViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.nome.setText("Cachoeiras");
+        PontoTuristico pontoTuristico = pontoTuristicosList.get(position);
+
+        holder.txtNomeLocal.setText(pontoTuristico.getNome());
+
     }
 
     @Override
     public int getItemCount() {
-        return 20;
+        return pontoTuristicosList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        ImageView imagemLocal;
-        TextView nome;
-        CheckBox estrela1;
-        CheckBox estrela2;
-        CheckBox estrela3;
-        CheckBox estrela4;
-        CheckBox estrela5;
-        CheckBox curtida;
+        ImageView imgRecyclePontoTurstico;
+        TextView txtNomeLocal;
+        CheckBox cboxUmaEstrela;
+        CheckBox cboxDuasEstrela;
+        CheckBox cboxTresEstrela;
+        CheckBox cboxQuatroEstrela;
+        CheckBox cboxCincoEstrela;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            //imagemLocal = (ImageView) itemView.findViewById(R.id.);
-            nome = (TextView) itemView.findViewById(R.id.txtNomeLocal);
-            estrela1 = (CheckBox) itemView.findViewById(R.id.cboxUmaEstrela);
-            estrela2 = (CheckBox) itemView.findViewById(R.id.cboxDuasEstrela);
-            estrela3 = (CheckBox) itemView.findViewById(R.id.cboxTrêsEstrela);
-            estrela4 = (CheckBox) itemView.findViewById(R.id.cboxQuatroEstrela);
-            estrela5 = (CheckBox) itemView.findViewById(R.id.cboxCincoEstrela);
-            curtida = (CheckBox) itemView.findViewById(R.id.btnCurtirLocal);
+            imgRecyclePontoTurstico = (ImageView) itemView.findViewById(R.id.imgRecyclePontoTurstico);
+            txtNomeLocal = (TextView) itemView.findViewById(R.id.txtNomeLocal);
+            cboxUmaEstrela = (CheckBox) itemView.findViewById(R.id.cboxUmaEstrela);
+            cboxDuasEstrela = (CheckBox) itemView.findViewById(R.id.cboxDuasEstrela);
+            cboxTresEstrela = (CheckBox) itemView.findViewById(R.id.cboxTresEstrela);
+            cboxQuatroEstrela = (CheckBox) itemView.findViewById(R.id.cboxQuatroEstrela);
+            cboxCincoEstrela = (CheckBox) itemView.findViewById(R.id.cboxCincoEstrela);
+
         }
     }
 

@@ -9,7 +9,7 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
-    private List<Favotiro> curtidas;
+    private List<Favorito> curtidas;
     private List<Estrelas> estrelas;
     private boolean logado;
 
@@ -55,11 +55,11 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public List<Favotiro> getCurtidas() {
+    public List<Favorito> getCurtidas() {
         return curtidas;
     }
 
-    public void setCurtidas(List<Favotiro> curtidas) {
+    public void setCurtidas(List<Favorito> curtidas) {
         this.curtidas = curtidas;
     }
 

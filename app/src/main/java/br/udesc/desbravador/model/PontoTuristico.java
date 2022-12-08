@@ -11,8 +11,8 @@ public class PontoTuristico {
     private String latitude;
     private String longitude;
     private String endereco;
-    private String imagemPequena;
-    private String imagemGrande;
+    private int imagemPequena;
+    private int imagemGrande;
     private int eUtil;
     private int eCnpj;
     private String telefone;
@@ -24,6 +24,26 @@ public class PontoTuristico {
 
     public PontoTuristico() {
 
+    }
+
+    public PontoTuristico(int idPontoTuristico, int idTipoPontoTuristico, String nome, String descricao, String latitude, String longitude, String endereco, int imagemPequena, int imagemGrande, int eUtil, int eCnpj, String telefone, String whatsapp, String facebook, String instagram, String email, String funcionamento) {
+        this.idPontoTuristico = idPontoTuristico;
+        this.idTipoPontoTuristico = idTipoPontoTuristico;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.endereco = endereco;
+        this.imagemPequena = imagemPequena;
+        this.imagemGrande = imagemGrande;
+        this.eUtil = eUtil;
+        this.eCnpj = eCnpj;
+        this.telefone = telefone;
+        this.whatsapp = whatsapp;
+        this.facebook = facebook;
+        this.instagram = instagram;
+        this.email = email;
+        this.funcionamento = funcionamento;
     }
 
     public int getIdPontoTuristico() {
@@ -82,19 +102,19 @@ public class PontoTuristico {
         this.endereco = endereco;
     }
 
-    public String getImagemPequena() {
+    public int getImagemPequena() {
         return imagemPequena;
     }
 
-    public void setImagemPequena(String imagemPequena) {
+    public void setImagemPequena(int imagemPequena) {
         this.imagemPequena = imagemPequena;
     }
 
-    public String getImagemGrande() {
+    public int getImagemGrande() {
         return imagemGrande;
     }
 
-    public void setImagemGrande(String imagemGrande) {
+    public void setImagemGrande(int imagemGrande) {
         this.imagemGrande = imagemGrande;
     }
 

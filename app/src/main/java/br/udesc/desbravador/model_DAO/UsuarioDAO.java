@@ -12,10 +12,30 @@ import java.util.List;
 
 import br.udesc.desbravador.model.PontoTuristico;
 import br.udesc.desbravador.model.Usuario;
+import br.udesc.desbravador.repository.UsuarioRepository;
 
-public class UsuarioDAO {
+public class UsuarioDAO implements UsuarioRepository {
+    @Override
+    public boolean insert(Usuario usuario) {
+        return false;
+    }
 
-    private final SQLiteDatabase write;
+    @Override
+    public boolean update(Usuario usuario) {
+        return false;
+    }
+
+    @Override
+    public boolean delete(Usuario usuario) {
+        return false;
+    }
+
+    @Override
+    public List<Usuario> selectAll() {
+        return null;
+    }
+
+    /*private final SQLiteDatabase write;
     private final SQLiteDatabase read;
 
 
@@ -77,5 +97,8 @@ public class UsuarioDAO {
         }cursor.close();
         return usuarioLinha;
     }*/
+
+
+
 
 }

@@ -2,12 +2,14 @@ package br.udesc.desbravador.fragment;
 
 import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
+import static android.content.Context.CAMERA_SERVICE;
 
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.hardware.camera2.CameraManager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -26,8 +28,13 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.mlkit.vision.codescanner.GmsBarcodeScanner;
+import com.google.mlkit.vision.codescanner.GmsBarcodeScanning;
+
 import br.udesc.desbravador.R;
 import br.udesc.desbravador.activity.CadastroActivity;
+import br.udesc.desbravador.activity.HistoriaActivity;
+import br.udesc.desbravador.activity.NaturezaActivity;
 import br.udesc.desbravador.activity.PontosTuristicosAcitivity;
 
 /**
@@ -37,8 +44,9 @@ import br.udesc.desbravador.activity.PontosTuristicosAcitivity;
  */
 public class Fragment_Qrcode extends Fragment {
 
-    ImageButton botaoQrCode;
+    ImageButton btnAcionarLeitorQrCode;
     ImageView imvVerQrCode;
+
     private final static int selecao_camera = 1;
 
 
@@ -76,25 +84,6 @@ public class Fragment_Qrcode extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        View v = new View();
-        v.onCreateView();
-
-
-        /*if(ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA},0);
-        } */
-
-        /*if (ActivityCompat.checkSelfPermission(this,Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermission(this, new String[]{Manifest.permission.CAMERA}, 0);
-        }
-
-        imvVerQrCode = (ImageView) findViewById(R.id.imageView);
-        findViewById(R.id.btnAcionarLeitorQrCode).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void OnClick(View v) {
-                tirarFoto();
-            }
-        });*/
 
     }
 
@@ -104,63 +93,49 @@ public class Fragment_Qrcode extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment__qrcode, container, false);
 
-        //*btnQrCode = v.findViewById(R.id.btnAcionarLeitorQrCode);
+            configuracaoButton(v);
 
-        /*botaoQrCode = (ImageButton) v.findViewById(R.id.btnAcionarLeitorQrCode);
-        botaoQrCode.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intent, 1);
-            }
-        });*/
+        if(ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.CAMERA},0);
+        }
+
+        configuracaoButton(v);
         return v;
+
+
     }
 
-        // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment__qrcode, container, false);
-
-
-        /*acionarLeior =(ImageButton)view.findViewById(R.id.btnAcionarLeitorQrCode);
-        verFoto = (ImageView)view.findViewById(R.id.imvVerQrCode);
-        acionarLeior.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent cInt = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(cInt,Image_Capture_Code);
-            }
-        });*/
-
-
-    @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        botaoQrCode.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intent, selecao_camera);
-            }
-        });
 
     }
 
-    /*public void tirarFoto(){
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent, 1);
-    }*/
 
+    private void configuracaoButton(@NonNull View view){
+        imvVerQrCode = (ImageView) view.findViewById(R.id.imageView);
+        view.findViewById(R.id.btnAcionarLeitorQrCode).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                //Intent intent1 = new Intent(MediaStore.EXTRA_SHOW_ACTION_ICONS);
+                startActivityForResult(intent, 1);
+                //startActivityForResult(intent1, 1);
 
+            }
+        });
+    }
 
-    /*@Override
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1 && resultCode == getActivity().RESULT_OK) {
             Bundle extras = data.getExtras();
             Bitmap image = (Bitmap) extras.get("data");
             imvVerQrCode.setImageBitmap(image);
-        }
 
-    }*/
+        }
+        super.onActivityResult(requestCode,resultCode, data);
+
+    }
 }

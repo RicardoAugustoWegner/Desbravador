@@ -83,6 +83,7 @@
             android:layout_height="20dp"
             android:layout_marginStart="10dp"
             android:button="@drawable/check_box_estrela"
+            android:theme="@style/cor_check_box_verde"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/cboxDuasEstrela"
             app:layout_constraintTop_toBottomOf="@+id/txtNomeLocal"

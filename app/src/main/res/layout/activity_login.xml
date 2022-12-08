@@ -103,7 +103,6 @@
         android:layout_width="150dp"
         android:layout_height="48dp"
         android:background="@drawable/gradiente_verde"
-        android:onClick="abrirCadastro"
         android:text="@string/criar_conta"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/btn_entrar_login"

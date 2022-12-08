@@ -12,10 +12,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import br.udesc.desbravador.MainActivity;
 import br.udesc.desbravador.R;
 import br.udesc.desbravador.activity.CadastroActivity;
 import br.udesc.desbravador.activity.PontosTuristicosAcitivity;
+import br.udesc.desbravador.repository.Banco;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +24,7 @@ import br.udesc.desbravador.activity.PontosTuristicosAcitivity;
  */
 public class FragmentLogin extends Fragment {
 
+    Banco bd = new Banco();
     Button btnCriarConta;
     Button btn_entrar_login;
     View view;
@@ -85,11 +86,16 @@ public class FragmentLogin extends Fragment {
     }
 
     private void configuracaoButton(View view){
-        view.findViewById(R.id.btn_criar_conta).setOnClickListener(v ->
-                startActivity(new Intent(getActivity(), CadastroActivity.class)));
 
-        view.findViewById(R.id.btn_entrar_login).setOnClickListener(v ->
-                startActivity(new Intent(getActivity(), PontosTuristicosAcitivity.class)));
+        if (bd.isAutenticado() == false){
+            view.findViewById(R.id.btn_criar_conta).setOnClickListener(v ->
+                    startActivity(new Intent(getActivity(), CadastroActivity.class)));
+        } else {
+            view.findViewById(R.id.btn_entrar_login).setOnClickListener(v ->
+                    startActivity(new Intent(getActivity(), CadastroActivity.class)));
+        }
+
+
     }
 
 

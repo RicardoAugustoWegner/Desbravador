@@ -17,6 +17,8 @@ import br.udesc.desbravador.activity.GastronomiaActivity;
 import br.udesc.desbravador.activity.HoteisActivity;
 import br.udesc.desbravador.activity.NaturezaActivity;
 import br.udesc.desbravador.activity.ReligiosoActivity;
+import br.udesc.desbravador.model_DAO.PontoTuristicoDAO;
+import br.udesc.desbravador.repository.Banco;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,10 +27,7 @@ import br.udesc.desbravador.activity.ReligiosoActivity;
  */
 public class Fragment_Home extends Fragment {
 
-
-    ImageButton btn_natureza;
     View view;
-
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -68,6 +67,7 @@ public class Fragment_Home extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        Banco.inicia();
     }
 
     @Override
@@ -87,39 +87,39 @@ public class Fragment_Home extends Fragment {
 
     private void configuracaoButton(@NonNull View view) {
         view.findViewById(R.id.btnHistorias).setOnClickListener(v ->
-                startActivity(new Intent(getActivity(), NaturezaActivity.class)));
+                startActivity(new Intent(getActivity(), HoteisActivity.class)));
 
         view.findViewById(R.id.butHoteis).setOnClickListener(v ->
                 startActivity(new Intent(getActivity(), HoteisActivity.class)));
 
         view.findViewById(R.id.butGastronomia).setOnClickListener(v ->
-                startActivity(new Intent(getActivity(), GastronomiaActivity.class)));
+                startActivity(new Intent(getActivity(), HoteisActivity.class)));
 
         view.findViewById(R.id.btn_natureza).setOnClickListener(v ->
-                startActivity(new Intent(getActivity(), NaturezaActivity.class)));
+                startActivity(new Intent(getActivity(), HoteisActivity.class)));
 
         view.findViewById(R.id.butPracas).setOnClickListener(v ->
-                startActivity(new Intent(getActivity(), NaturezaActivity.class)));
+                startActivity(new Intent(getActivity(), HoteisActivity.class)));
 
         view.findViewById(R.id.butReligioso).setOnClickListener(v ->
-                startActivity(new Intent(getActivity(), ReligiosoActivity.class)));
+                startActivity(new Intent(getActivity(), HoteisActivity.class)));
 
         view.findViewById(R.id.butEsportes).setOnClickListener(v ->
-                startActivity(new Intent(getActivity(), NaturezaActivity.class)));
+                startActivity(new Intent(getActivity(), HoteisActivity.class)));
 
         view.findViewById(R.id.butRural).setOnClickListener(v ->
-                startActivity(new Intent(getActivity(), NaturezaActivity.class)));
+                startActivity(new Intent(getActivity(), HoteisActivity.class)));
 
         view.findViewById(R.id.butSaude).setOnClickListener(v ->
-                startActivity(new Intent(getActivity(), NaturezaActivity.class)));
+                startActivity(new Intent(getActivity(), HoteisActivity.class)));
 
         view.findViewById(R.id.butMonumentos).setOnClickListener(v ->
-                startActivity(new Intent(getActivity(), NaturezaActivity.class)));
+                startActivity(new Intent(getActivity(), HoteisActivity.class)));
 
         view.findViewById(R.id.butArtesanatos).setOnClickListener(v ->
-                startActivity(new Intent(getActivity(), NaturezaActivity.class)));
+                startActivity(new Intent(getActivity(), HoteisActivity.class)));
 
         view.findViewById(R.id.butEventos).setOnClickListener(v ->
-                startActivity(new Intent(getActivity(), NaturezaActivity.class)));
+                startActivity(new Intent(getActivity(), HoteisActivity.class)));
     }
 }

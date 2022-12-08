@@ -1,60 +1,54 @@
 package br.udesc.desbravador.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.widget.TextView;
-
-import java.util.ArrayList;
-import java.util.List;
+import android.widget.Toast;
 
 import br.udesc.desbravador.R;
 import br.udesc.desbravador.adapter.PontosTuristicosAdapter;
-import br.udesc.desbravador.databinding.AdapterSimplePontosTuristicosBinding;
 import br.udesc.desbravador.model.PontoTuristico;
-import br.udesc.desbravador.model_DAO.BancoDesbravadoresHelpers;
 import br.udesc.desbravador.model_DAO.PontoTuristicoDAO;
+import br.udesc.desbravador.repository.Banco;
 
-public class NaturezaActivity extends AppCompatActivity {
+public class NaturezaActivity extends AppCompatActivity implements PontosTuristicosAdapter.OnClickListener {
 
-    List<PontoTuristico> pontoTuristicoList;
-    RecyclerView recyclerView;
-
-    BancoDesbravadoresHelpers bd;
-
-
-    /*private RecyclerView recyclerView;
-    private PontosTuristicosAdapter pontosTuristicosAdapter;
-    private TextView tituloNatureza;
-
-    private PontoTuristicoDAO pontoTuristicoDAO;*/
+    private RecyclerView recyclerView;
+    private PontosTuristicosAdapter adapter;
+   //PontoTuristicoDAO pontoTuristicoDAO = new PontoTuristicoDAO();;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_natureza);
-
-       // bd = new BancoDesbravadoresHelpers(getApplicationContext(),);
-
-        /*carregarPontosTurisicosList();
-
-        recyclerView.findViewById(R.id.recycleNatureza);
-        pontoTuristicoDAO = new PontoTuristicoDAO(getApplicationContext());*/
+        carregarPontosTurisicosList();
+        iniciaComponents();
+        Banco.inicia();
 
     }
 
-    /*private void carregarPontosTurisicosList(){
-
+    private void carregarPontosTurisicosList(){
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
-        pontosTuristicosAdapter = new PontosTuristicosAdapter(pontoTuristicoDAO.getListPontoTuristicos(), this);
-        recyclerView.setAdapter(pontosTuristicosAdapter);
+        adapter = new PontosTuristicosAdapter(PontoTuristicoDAO.selectTipo(4), this);
+        recyclerView.setAdapter(adapter);
+    }
 
+    private void iniciaComponents(){
+        recyclerView = findViewById(R.id.recycleNatureza);
+
+    }
+
+    @Override
+    public void OnClick(@NonNull PontoTuristico pontoTuristico) {
+        Toast.makeText(this, pontoTuristico.getNome(), Toast.LENGTH_SHORT).show();
+    }
+
+    /*@Override
+    public void OnClick(@NonNull PontoTuristico pontoTuristico) {
+        Toast.makeText(this, pontoTuristico.getNome(), Toast.LENGTH_SHORT).show();
     }*/
-
-
 }

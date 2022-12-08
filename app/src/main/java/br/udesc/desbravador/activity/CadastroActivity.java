@@ -30,11 +30,11 @@ public class CadastroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
 
-        usuarioDAO = new UsuarioDAO(this);
+       // usuarioDAO = new UsuarioDAO(this);
 
         iniciarComponentes();
         //configuracaoButton();
-        validadaDados();
+        //validadaDados();
     }
 
     public void iniciarComponentes(){
@@ -76,7 +76,7 @@ public class CadastroActivity extends AppCompatActivity {
                             usuario.setNome(nome);
                             usuario.setEmail(email);
                             usuario.setSenha(senha);
-                            usuarioDAO.cadastrarUsuario(usuario);
+                            usuarioDAO.insert(usuario);
 
                             Toast.makeText(getApplicationContext(), "Cadastrado com Sucesso", Toast.LENGTH_LONG).show();
                             finish();
@@ -109,7 +109,7 @@ public class CadastroActivity extends AppCompatActivity {
 
         TextView textView = new TextView(getApplicationContext());
         textView.setBackgroundResource(R.drawable.botao_borda_verde_radius);
-        textView.setTextSize(15);
+        textView.setTextSize(10);
         textView.setTextColor(R.color.cor_text_verde_escuro);
         ;
 
